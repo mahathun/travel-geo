@@ -20,7 +20,7 @@ class App extends Component {
 
     return (
     <ThemeProvider uiTheme={uiTheme}>
-      <Stack />
+      <Stack/>
      </ThemeProvider>
     );
   }

@@ -4,15 +4,21 @@ import { Avatar, Subheader, Button } from 'react-native-material-ui';
 import Icon from 'react-native-vector-icons/FontAwesome';
 // const myIcon = (<Icon name="rocket" size={30} color="#900" />)
 
+import firebase,{firebaseApp} from './../config/firebaseConfig'
+
 class Login extends Component {
   _navigate(){
     this.props.navigation.navigate('TravelGeoAccount')
+
   }
+
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.iconSection}>
-          <View style={styles.iconSectionOne}></View>
+          <View style={styles.iconSectionOne}>
+
+          </View>
           <View style={styles.iconSectionTwo}>
             <Avatar style={{
               container:{

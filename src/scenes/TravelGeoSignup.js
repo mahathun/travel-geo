@@ -5,34 +5,24 @@ import {Button, Subheader} from 'react-native-material-ui'
 import TextField from 'react-native-md-textinput';
 import Spinner from 'react-native-spinkit';
 
-import * as firebase from 'firebase'
 
-// Initialize Firebase
-const firebaseConfig = {
-  apiKey: "AIzaSyBLnqd4Pbnqy-fWsN9HHMJNQkfiNcOLU4o",
-    authDomain: "travelgeo-f1185.firebaseapp.com",
-    databaseURL: "https://travelgeo-f1185.firebaseio.com",
-    storageBucket: "travelgeo-f1185.appspot.com",
-    messagingSenderId: "422494632547"
-};
-const firebaseApp = firebase.initializeApp(firebaseConfig);
+import firebase, {firebaseApp} from './../config/firebaseConfig'
+
 
 class TravelGeoSignup extends Component {
   constructor(props){
     super(props);
 
     this.state = {
-      loading: false,
+      loading: false, //determine whether to show the spinner, Signup text
       email:'',
       password:''
     }
   }
   async signupHandler(){
     this.setState({loading:true})
-    console.log('Signup clicked');
-    console.log('userName', this.state.email);
-    console.log('password', this.state.password);
 
+    //contacting the firebase and try to create a user if fails returns an alert message to the user
     try {
       let test = await firebaseApp.auth().createUserWithEmailAndPassword(this.state.email,this.state.password)
       this.setState({loading:false, email:'', password:''})

@@ -2,11 +2,15 @@ import React,{Component} from 'react';
 
 import {StackNavigator, TabNavigator} from 'react-navigation'
 
+import firebase, {firebaseApp} from './firebaseConfig'
+
 import Main from './../scenes/Main'
+import Splash from './../scenes/Splash'
 import Login from './../scenes/Login'
 import TravelGeoAccount from './../scenes/TravelGeoAccount'
 import TravelGeoLogin from './../scenes/TravelGeoLogin'
 import TravelGeoSignup from './../scenes/TravelGeoSignup'
+
 
 export const TravelGeoTabNav = TabNavigator({
   TravelGeoLogin:{
@@ -28,6 +32,15 @@ export const TravelGeoTabNav = TabNavigator({
 });
 
 export const Stack = StackNavigator({
+  Splash:{
+    screen: Splash,
+    navigationOptions:{
+      title:'Splash',
+      header:{
+        visible:false
+      }
+    }
+  },
   Login:{
     screen: Login,
     navigationOptions:{
