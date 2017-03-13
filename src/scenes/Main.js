@@ -7,6 +7,9 @@ import {Button} from 'react-native-material-ui'
 import {firebaseApp} from './../config/firebaseConfig'
 
 class Main extends Component {
+  componentWillMount(){
+
+  }
   render() {
     return (
       <View>
@@ -14,6 +17,7 @@ class Main extends Component {
 
           <Button primary raised text="logout" onPress={()=>{
             console.log("Logged out");
+
             var stat = firebaseApp.auth().signOut().then(()=>{
               console.log("Signout successfull");
             }).catch((e)=>{
