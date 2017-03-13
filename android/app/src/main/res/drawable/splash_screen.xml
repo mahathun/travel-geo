@@ -5,7 +5,7 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@mipmap/travel_geo_logo_splash"
+            android:src="@mipmap/ic_launcher"
             />
     </item>
 </layer-list>
