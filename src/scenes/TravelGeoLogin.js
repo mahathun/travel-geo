@@ -4,7 +4,7 @@ import {View,Text, StyleSheet, ScrollView} from 'react-native';
 import {Button} from 'react-native-material-ui'
 import TextField from 'react-native-md-textinput';
 
-class TravelGeoAccount extends Component {
+class TravelGeoLogin extends Component {
   constructor(props){
     super(props);
 
@@ -21,6 +21,7 @@ class TravelGeoAccount extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
+
         <View style={styles.loginFromContainer}>
           <View style={styles.textContainer}>
             <View style={styles.textField}><TextField
@@ -77,4 +78,4 @@ const styles= StyleSheet.create({
   }
 });
 
-export default TravelGeoAccount;
+export default TravelGeoLogin;
