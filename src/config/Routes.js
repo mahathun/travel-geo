@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 
-import {StackNavigator, TabNavigator} from 'react-navigation'
+import {StackNavigator, TabNavigator, DrawerNavigator} from 'react-navigation'
 
 import firebase, {firebaseApp} from './firebaseConfig'
 
@@ -10,7 +10,35 @@ import Login from './../scenes/Login'
 import TravelGeoAccount from './../scenes/TravelGeoAccount'
 import TravelGeoLogin from './../scenes/TravelGeoLogin'
 import TravelGeoSignup from './../scenes/TravelGeoSignup'
+import ScreenOne from './../scenes/ScreenOne'
+import ScreenTwo from './../scenes/ScreenTwo'
 
+import DrawerContent from './../components/DrawerContent'
+
+
+
+/*
+**There are two copies of the same object need to be maintain two locations
+** obj1 : DrawerRoutes (in src/config/Routes.js) = which defines actual routes
+** obj2 : navitems (in src/components/DrawerContent.js) = which is used to populate the content with the display name etc.
+***** WHEN EVER UPDATE A DRAWE ROUTE, BOTH PLACES MUST BE UPDATED *******
+*/
+const DrawerRoutes ={
+  ScreenOne: {
+    screen: ScreenOne
+  },
+  ScreenTwo: {
+    screen: ScreenTwo
+  },
+
+};
+
+export const DrawerStack = DrawerNavigator(DrawerRoutes,
+  {
+    initialRouteName:'ScreenOne',
+    contentComponent:({navigation})=> <DrawerContent navigation={navigation} />,
+  }
+)
 
 export const TravelGeoTabNav = TabNavigator({
   TravelGeoLogin:{
@@ -60,9 +88,9 @@ export const Stack = StackNavigator({
     }
   },
   Main:{
-    screen: Main,
+    screen: DrawerStack,
     navigationOptions:{
-      title:'Main'
+      title:'Welcome'
     }
   }
 }
