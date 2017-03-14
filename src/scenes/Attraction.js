@@ -1,19 +1,35 @@
 import React,{Component} from 'react';
-import {View,Text, StyleSheet, ToolbarAndroid,Image} from 'react-native';
+import {View,Text, StyleSheet, ToolbarAndroid,Image,ScrollView} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Button} from 'react-native-material-ui'
 import {firebaseApp} from './../config/firebaseConfig'
 import { TabLayoutAndroid } from "react-native-android-kit";
+import {NavigationActions} from 'react-navigation'
 
 class Attraction extends Component {
+
+  static navigationOptions={
+    title:({state})=> state.params.attraction.name,
+    header:{
+      visible:true
+    }
+  }
   render() {
+    let {attraction} = this.props.navigation.state.params;
+    // const setParamsAction = NavigationActions.setParams({
+    //   title: "New title", // these are the new params that will be merged into the existing route params
+    //   // The key of the route that should get the new params
+    //   key: 'Attraction',
+    // })
+    // this.props.navigation.dispatch(setParamsAction)
+    // console.log("state",this.state);
     return (
       <View style={{flex:1}}>
                 <View style={styles.imageView}>
                   <Image
                      style={{flex:1}}
                        resizeMode={"cover"}
-                        source={require('./../res/header_bg.jpg')}
+                        source={{uri:attraction.imageUrl}}
                        //source={{uri:attraction.imageUrl}}
                        //source={require('../images/logo_a_color.png')}
                    />
@@ -22,21 +38,23 @@ class Attraction extends Component {
                   <TabLayoutAndroid style={{height:60}} backgroundColor='#2196F3' indicatorTabColor='#ffc400'
                                     indicatorTabHeight={2} scrollable={false} center={false}>
 
-                      <TabLayoutAndroid.Item style={styles.tabContent} text='Reviews' textSize={16} textColor="white" selectedTextColor='#ffc400'
+                      <TabLayoutAndroid.Item style={styles.tabContent} text='About' textSize={16} textColor="white" selectedTextColor='#ffc400'
                                   icon='ic_home_black_24dp' iconPosition='left'>
 
-                          <Text>I'm the first Tab content!</Text>
+                          <ScrollView style={styles.aboutScrollView}>
+                            <Text style={{textAlign:'justify'}}>{attraction.description}</Text>
+                          </ScrollView>
 
                       </TabLayoutAndroid.Item>
 
-                      <TabLayoutAndroid.Item style={styles.tabContent} text='Gears Need' textSize={16} textColor='white' selectedTextColor='#ffc400'
+                      <TabLayoutAndroid.Item style={styles.tabContent} text='Reviews' textSize={16} textColor='white' selectedTextColor='#ffc400'
                                   icon='ic_important_devices_black_24dp' iconPosition='left'>
 
                           <Text>I'm the second Tab content!</Text>
 
                       </TabLayoutAndroid.Item>
 
-                      <TabLayoutAndroid.Item style={styles.tabContent} text='About' textSize={16} textColor='white' selectedTextColor='#ffc400'
+                      <TabLayoutAndroid.Item style={styles.tabContent} text='Gears Needed' textSize={16} textColor='white' selectedTextColor='#ffc400'
                                   icon='ic_important_devices_black_24dp' iconPosition='left'>
 
                           <Text>I'm the third Tab content!</Text>
@@ -63,7 +81,11 @@ const styles = StyleSheet.create({
     borderTopWidth:2,
     borderTopColor:'rgba(99, 99, 99, 0.72)',
     shadowColor:'red'
-  }
+  },
+  aboutScrollView:{
+    padding:5,
+
+  },
 })
 
 export default Attraction;

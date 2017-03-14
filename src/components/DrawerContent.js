@@ -29,7 +29,10 @@ class DrawerContent extends Component{
                           style={styles.item_touchableOpacity}
                           onPress={
                             ()=>{
-                                this.props.navigation.navigate(l.screen)
+                                //this.props.navigation.navigate(l.screen)
+                                this.props.navigation.dispatch({
+                                  type: 'Navigation/RESET',index:0,actions:[{type:'Navigation/NAVIGATE',routeName:l.screen}]
+                                });
                                 }
                           }>
                           <View

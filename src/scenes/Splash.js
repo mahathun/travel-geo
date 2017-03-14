@@ -23,14 +23,14 @@ class Splash extends Component {
           type: 'Navigation/RESET',index:0,actions:[{type:'Navigation/NAVIGATE',routeName:'Main'}]
         });
         // this.props.navigation.navigate('Main')
-        console.log("Main", user);
+        //console.log("Main", user);
 
       }else{
         this.props.navigation.dispatch({
           type: 'Navigation/RESET',index:0,actions:[{type:'Navigation/NAVIGATE',routeName:'Login'}]
         });
         // this.props.navigation.navigate('Login')
-        console.log("Login", user);
+        //console.log("Login", user);
 
       }
 

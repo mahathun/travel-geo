@@ -6,6 +6,8 @@ import {Button} from 'react-native-material-ui'
 
 import {firebaseApp} from './../config/firebaseConfig'
 import CustomCard from './../components/CustomCard'
+import {NavigationActions} from 'react-navigation'
+import Spinner from 'react-native-spinkit'
 
 // firebaseApp.database().ref('attractions').push().set({
 //
@@ -20,6 +22,7 @@ class NewsFeed extends Component {
   constructor(props){
     super(props)
     this.state = {
+      isLoading:true,
       attractions:[]
     }
 
@@ -37,13 +40,15 @@ class NewsFeed extends Component {
           }
         })
 
-        this.setState({attractions:attractions})
+        this.setState({isLoading:false,attractions:attractions})
       },(error)=>{
+        this.setState({isLoading:false})
         console.log("ERROr", error);
       })
 
   }
   static navigationOptions={
+    title:'Welcome',
     header:{
       visible:true
     }
@@ -55,11 +60,13 @@ class NewsFeed extends Component {
   render() {
     console.log("attr",this.state.attractions);
     return (
-        <ScrollView>
+        <ScrollView style={{backgroundColor:'#2196F3'}}>
+          {(this.state.isLoading)?<View style={{alignItems:'center'}}><Spinner size={40} type="ThreeBounce" color={'white'}/></View>:null}
           {
             this.state.attractions.map((attraction, i)=>{
               return (<CustomCard key={i} attraction={attraction} onPress={()=>{
-                  this.props.navigation.navigate('Attraction')
+                  this.props.navigation.navigate('Attraction',{attraction:attraction})
+
               }}/>)
 
             })

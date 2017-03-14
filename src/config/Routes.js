@@ -18,6 +18,14 @@ import Attraction from './../scenes/Attraction'
 import DrawerContent from './../components/DrawerContent'
 
 
+export const StackedNewsfeed = StackNavigator({
+  NewsFeed: {
+    screen: NewsFeed,
+  },
+  Attraction:{
+    screen: Attraction,
+  },
+})
 
 /*
 **There are two copies of the same object need to be maintain two locations
@@ -26,8 +34,8 @@ import DrawerContent from './../components/DrawerContent'
 ***** WHEN EVER UPDATE A DRAWE ROUTE, BOTH PLACES MUST BE UPDATED *******
 */
 const DrawerRoutes ={
-  NewsFeed: {
-    screen: NewsFeed,
+  NewsFeedScreen: {
+    screen: StackedNewsfeed,
 
   },
   NearByAttractions: {
@@ -37,15 +45,12 @@ const DrawerRoutes ={
   Settings:{
     screen: Settings,
   },
-  Attraction:{
-    screen: Attraction,
-  }
 
 };
 
 export const DrawerStack = DrawerNavigator(DrawerRoutes,
   {
-    initialRouteName:'NewsFeed',
+    initialRouteName:'NewsFeedScreen',
     contentComponent:({navigation})=> <DrawerContent navigation={navigation} />,
 
   }
