@@ -10,8 +10,10 @@ import Login from './../scenes/Login'
 import TravelGeoAccount from './../scenes/TravelGeoAccount'
 import TravelGeoLogin from './../scenes/TravelGeoLogin'
 import TravelGeoSignup from './../scenes/TravelGeoSignup'
-import ScreenOne from './../scenes/ScreenOne'
-import ScreenTwo from './../scenes/ScreenTwo'
+import NewsFeed from './../scenes/NewsFeed'
+import NearByAttractions from './../scenes/NearByAttractions'
+import Settings from './../scenes/Settings'
+import Attraction from './../scenes/Attraction'
 
 import DrawerContent from './../components/DrawerContent'
 
@@ -24,19 +26,28 @@ import DrawerContent from './../components/DrawerContent'
 ***** WHEN EVER UPDATE A DRAWE ROUTE, BOTH PLACES MUST BE UPDATED *******
 */
 const DrawerRoutes ={
-  ScreenOne: {
-    screen: ScreenOne
+  NewsFeed: {
+    screen: NewsFeed,
+
   },
-  ScreenTwo: {
-    screen: ScreenTwo
+  NearByAttractions: {
+    screen: NearByAttractions,
+
   },
+  Settings:{
+    screen: Settings,
+  },
+  Attraction:{
+    screen: Attraction,
+  }
 
 };
 
 export const DrawerStack = DrawerNavigator(DrawerRoutes,
   {
-    initialRouteName:'ScreenOne',
+    initialRouteName:'NewsFeed',
     contentComponent:({navigation})=> <DrawerContent navigation={navigation} />,
+
   }
 )
 
@@ -90,8 +101,11 @@ export const Stack = StackNavigator({
   Main:{
     screen: DrawerStack,
     navigationOptions:{
-      title:'Welcome'
+      title:'Welcome',
+      header:{
+        visible:false
+      }
     }
   }
-}
+},
 );

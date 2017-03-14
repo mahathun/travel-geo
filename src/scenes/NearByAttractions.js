@@ -6,15 +6,15 @@ import {Button} from 'react-native-material-ui'
 
 import {firebaseApp} from './../config/firebaseConfig'
 
-class ScreenOne extends Component {
+class NearByAttractions extends Component {
 
   render() {
     return (
       <View>
-        <Text>ScreenTwo</Text>
+        <Text>NearByAttractions</Text>
       </View>
     );
   }
 }
 
-export default ScreenOne;
+export default NearByAttractions;

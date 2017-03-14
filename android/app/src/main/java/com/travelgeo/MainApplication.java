@@ -3,6 +3,7 @@ package com.travelgeo;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import fr.aybadb.rnak.RNAKPackage;
 import com.react.rnspinkit.RNSpinkitPackage;
 // import com.reactnativenavigation.NavigationReactPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -26,6 +27,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNAKPackage(),
             new RNSpinkitPackage(),
             new VectorIconsPackage()
       );

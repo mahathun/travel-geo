@@ -2,27 +2,25 @@ import React,{Component} from 'react'
 import {View,Text, TouchableOpacity, StyleSheet} from 'react-native'
 
 import DrawerHeader from './DrawerHeader'
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 class DrawerContent extends Component{
-  constructor(props) {
-    super(props)
-  }
   render(){
     var navitems =[
-    {
-      screen: 'ScreenOne',
-      displayName:'ScreenOne',
-    },
-    {
-      screen: 'ScreenTwo',
-      displayName:'ScreenTwo',
-    },
-]
-
+        {
+          screen: 'NewsFeed',
+          displayName:'News Feed',
+          icon:'newspaper'
+        },
+        {
+          screen: 'NearByAttractions',
+          displayName:'Near-by Attractions',
+          icon:'map'
+        },
+    ]
     return  (
-      <View style={{borderWidth:0, flex:1, backgroundColor:'#aaa', marginTop:-20, paddingTop:40}}>
-        <DrawerHeader />
-
+      <View style={styles.container}>
+        <DrawerHeader navigation={this.props.navigation}/>
         <View>
         {
             navitems.map((l,i)=>{
@@ -34,21 +32,26 @@ class DrawerContent extends Component{
                                 this.props.navigation.navigate(l.screen)
                                 }
                           }>
-
                           <View
                             style={styles.item_text_container}>
+                            {(l.icon)?<Icon size={20} style={{marginRight:10}} name={l.icon}/>:null}
                             <Text style={styles.item_text}>{l.displayName}</Text>
                           </View>
-
                     </TouchableOpacity>)
             })
         }
         </View>
-        </View>)
+      </View>)
   }
 }
 
 const styles = StyleSheet.create({
+  container:{
+    borderWidth:0,
+    flex:1,
+    backgroundColor:'#2196F3',
+    zIndex:100
+  },
   item_container:{
 
   },
@@ -62,7 +65,7 @@ const styles = StyleSheet.create({
     paddingLeft:15,
     backgroundColor:'#fff0',
     borderTopWidth:0.5,
-    borderColor:'#fff',
+    borderColor:'#1e83d4',
   },
   item_text:{
     fontSize:15,
