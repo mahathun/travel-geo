@@ -12,16 +12,19 @@ class CustomCard extends Component {
     let {attraction} = this.props;
 
     return (
-      <View>
+      <View style={{}}>
         <Card onPress={this.props.onPress} style={{
           container: {
             borderRadius: 5,
-            margin:20
+            marginRight:10,
+            marginLeft:10,
+            marginBottom:10,
+            marginTop:8,
           }
         }}>
         <View>
           <Image
-             style={{height:150}}
+             style={{height:150, borderTopRightRadius:5,borderTopLeftRadius:5}}
                resizeMode={"cover"}
               //  source={require('./../res/header_bg.jpg')}
                source={{uri:attraction.imageUrl}}

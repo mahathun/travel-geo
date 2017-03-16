@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {ScrollView,View,Text, StyleSheet, ToolbarAndroid} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import {Button} from 'react-native-material-ui'
+import {Button, COLOR} from 'react-native-material-ui'
 
 import {firebaseApp} from './../config/firebaseConfig'
 import CustomCard from './../components/CustomCard'
@@ -50,7 +50,13 @@ class NewsFeed extends Component {
   static navigationOptions={
     title:'Welcome',
     header:{
-      visible:true
+      visible:true,
+      style:{
+        backgroundColor:COLOR.blue700,
+      },
+      titleStyle:{
+        color:'white'
+      }
     }
   }
   componentWillMount(){

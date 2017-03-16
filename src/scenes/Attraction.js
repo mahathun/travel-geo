@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {View,Text, StyleSheet, ToolbarAndroid,Image,ScrollView} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {Button} from 'react-native-material-ui'
+import {Button,COLOR} from 'react-native-material-ui'
 import {firebaseApp} from './../config/firebaseConfig'
 import { TabLayoutAndroid } from "react-native-android-kit";
 import {NavigationActions} from 'react-navigation'
@@ -11,7 +11,13 @@ class Attraction extends Component {
   static navigationOptions={
     title:({state})=> state.params.attraction.name,
     header:{
-      visible:true
+      visible:true,
+      style:{
+        backgroundColor:COLOR.blue700,
+      },
+      titleStyle:{
+        color:'white'
+      }
     }
   }
   render() {
@@ -38,26 +44,47 @@ class Attraction extends Component {
                   <TabLayoutAndroid style={{height:60}} backgroundColor='#2196F3' indicatorTabColor='#ffc400'
                                     indicatorTabHeight={2} scrollable={false} center={false}>
 
-                      <TabLayoutAndroid.Item style={styles.tabContent} text='About' textSize={16} textColor="white" selectedTextColor='#ffc400'
-                                  icon='ic_home_black_24dp' iconPosition='left'>
+                      <TabLayoutAndroid.Item
+                        style={styles.tabContent}
+                        text='Reviews'
+                        textSize={16}
+                        textColor="white"
+                        selectedTextColor='#ffc400'
+                        icon='ic_home_black_24dp'
+                        iconPosition='left'>
 
                           <ScrollView style={styles.aboutScrollView}>
-                            <Text style={{textAlign:'justify'}}>{attraction.description}</Text>
+                            <Text style={styles.tabText}>reviews</Text>
                           </ScrollView>
 
                       </TabLayoutAndroid.Item>
 
-                      <TabLayoutAndroid.Item style={styles.tabContent} text='Reviews' textSize={16} textColor='white' selectedTextColor='#ffc400'
-                                  icon='ic_important_devices_black_24dp' iconPosition='left'>
+                      <TabLayoutAndroid.Item
+                        style={styles.tabContent}
+                        text='About'
+                        textSize={16}
+                        textColor='white'
+                        selectedTextColor='#ffc400'
+                        icon='ic_important_devices_black_24dp'
+                        iconPosition='left'>
 
-                          <Text>I'm the second Tab content!</Text>
+                            <ScrollView style={styles.aboutScrollView}>
+                              <Text style={styles.tabText}>{attraction.description}</Text>
+                            </ScrollView>
 
                       </TabLayoutAndroid.Item>
 
-                      <TabLayoutAndroid.Item style={styles.tabContent} text='Gears Needed' textSize={16} textColor='white' selectedTextColor='#ffc400'
-                                  icon='ic_important_devices_black_24dp' iconPosition='left'>
+                      <TabLayoutAndroid.Item
+                        style={styles.tabContent}
+                        text='Gears Needed'
+                        textSize={16} textColor='white'
+                        selectedTextColor='#ffc400'
+                        icon='ic_important_devices_black_24dp'
+                        iconPosition='left'>
 
-                          <Text>I'm the third Tab content!</Text>
+                          <ScrollView style={styles.aboutScrollView}>
+                            <Text style={styles.tabText}>geers needed</Text>
+                          </ScrollView>
 
                       </TabLayoutAndroid.Item>
 
@@ -85,6 +112,10 @@ const styles = StyleSheet.create({
   aboutScrollView:{
     padding:5,
 
+  },
+  tabText:{
+    textAlign:'justify',
+    color:'white'
   },
 })
 
