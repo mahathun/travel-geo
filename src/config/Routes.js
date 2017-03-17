@@ -17,7 +17,13 @@ import Attraction from './../scenes/Attraction'
 
 import DrawerContent from './../components/DrawerContent'
 
-
+/*
+*********DRAWER ROUTES***************
+**There are two copies of the same object need to be maintain two locations
+** obj1 : StackedNewsfeed (in src/config/Routes.js) = which defines actual routes
+** obj2 : navitems (in src/components/DrawerContent.js) = which is used to populate the content with the display name etc.
+***** WHEN EVER UPDATE A DRAWER ROUTE, BOTH PLACES MUST BE UPDATED *******
+*/
 export const StackedNewsfeed = StackNavigator({
   NewsFeed: {
     screen: NewsFeed,
@@ -25,21 +31,16 @@ export const StackedNewsfeed = StackNavigator({
   Attraction:{
     screen: Attraction,
   },
+  NearByAttractions: {
+    screen: NearByAttractions,
+  },
 })
 
-/*
-**There are two copies of the same object need to be maintain two locations
-** obj1 : DrawerRoutes (in src/config/Routes.js) = which defines actual routes
-** obj2 : navitems (in src/components/DrawerContent.js) = which is used to populate the content with the display name etc.
-***** WHEN EVER UPDATE A DRAWE ROUTE, BOTH PLACES MUST BE UPDATED *******
-*/
+
+
 const DrawerRoutes ={
   NewsFeedScreen: {
     screen: StackedNewsfeed,
-
-  },
-  NearByAttractions: {
-    screen: NearByAttractions,
 
   },
   Settings:{

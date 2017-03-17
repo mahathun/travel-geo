@@ -3,6 +3,7 @@ package com.travelgeo;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.airbnb.android.react.maps.MapsPackage;
 import fr.aybadb.rnak.RNAKPackage;
 import com.react.rnspinkit.RNSpinkitPackage;
 // import com.reactnativenavigation.NavigationReactPackage;
@@ -27,6 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new MapsPackage(),
             new RNAKPackage(),
             new RNSpinkitPackage(),
             new VectorIconsPackage()
