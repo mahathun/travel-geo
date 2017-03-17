@@ -6,6 +6,7 @@ import {Button,COLOR} from 'react-native-material-ui'
 
 import {firebaseApp} from './../config/firebaseConfig'
 import MapView from 'react-native-maps';
+import MapCallout from './../components/MapCallout.js';
 
 const LATITUDE_DELTA = .9;//roughly equalant to 100km
 const LONGITUDE_DELTA = .9;//roughly equalant to 100km
@@ -103,7 +104,12 @@ class NearByAttractions extends Component {
                   onCalloutPress={()=>{
                     this.props.navigation.navigate("Attraction",{attraction:attr})
                   }}
-                />);
+                >
+                  <MapView.Callout>
+                    <MapCallout title={attr.name} description={attr.description} imageUrl={attr.imageUrl}/>
+                  </MapView.Callout>
+                </MapView.Marker>
+                );
               }
 
             })
