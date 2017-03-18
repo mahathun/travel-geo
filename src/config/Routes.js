@@ -3,7 +3,7 @@ import React,{Component} from 'react';
 import {StackNavigator, TabNavigator, DrawerNavigator} from 'react-navigation'
 
 import firebase, {firebaseApp} from './firebaseConfig'
-import {COLOR} from 'react-native-material-ui';
+import {COLOR, Button} from 'react-native-material-ui';
 
 import Main from './../scenes/Main'
 import Splash from './../scenes/Splash'

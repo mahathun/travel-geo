@@ -28,7 +28,7 @@ class DrawerHeader extends Component {
                 container:{
                   backgroundColor:'#90CAF9'
                 }
-              }} size={80} image={<Icon name="user" size={50}  style={{color:'#6796c1'}}/>} />
+              }} size={80} icon={'face'} />
 
             </View>
             <View style={styles.settingsIcon}>
