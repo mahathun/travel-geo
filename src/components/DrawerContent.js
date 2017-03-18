@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import {View,Text, TouchableOpacity, StyleSheet} from 'react-native'
+import {COLOR} from 'react-native-material-ui';
 
 import DrawerHeader from './DrawerHeader'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
   container:{
     borderWidth:0,
     flex:1,
-    backgroundColor:'#2196F3',
+    backgroundColor:COLOR.green500,//'#2196F3',
     zIndex:100
   },
   item_container:{

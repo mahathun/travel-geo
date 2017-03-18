@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {View,Text, StyleSheet, ScrollView, Alert,AsyncStorage} from 'react-native';
 
-import {Button} from 'react-native-material-ui'
+import {Button, COLOR} from 'react-native-material-ui'
 import TextField from 'react-native-md-textinput';
 import Spinner from 'react-native-spinkit'
 
@@ -72,7 +72,7 @@ class TravelGeoLogin extends Component {
 
             /></View>
           </View>
-          <Button disabled={this.state.loading}
+          <Button secondary disabled={this.state.loading}
             icon={
               <Spinner isVisible={this.state.loading} size={25} type="Wave" color={'white'}/>
 
@@ -88,7 +88,7 @@ const styles= StyleSheet.create({
     // backgroundColor:'pink',
   },
   container:{
-    backgroundColor:'#2196F3',
+    backgroundColor:COLOR.green500,//'#2196F3',
     flex:1,
     paddingLeft:50,
 

@@ -13,7 +13,7 @@ class Attraction extends Component {
     header:{
       visible:true,
       style:{
-        backgroundColor:COLOR.blue700,
+        backgroundColor:COLOR.green500,
       },
       titleStyle:{
         color:'white'
@@ -41,7 +41,7 @@ class Attraction extends Component {
                    />
                 </View>
                 <View style={styles.tabView}>
-                  <TabLayoutAndroid style={{height:60}} backgroundColor='#2196F3' indicatorTabColor='#ffc400'
+                  <TabLayoutAndroid style={{height:60}} backgroundColor={COLOR.green500} indicatorTabColor='#ffc400'
                                     indicatorTabHeight={2} scrollable={false} center={false}>
 
                       <TabLayoutAndroid.Item
@@ -49,7 +49,7 @@ class Attraction extends Component {
                         text='Reviews'
                         textSize={16}
                         textColor="white"
-                        selectedTextColor='#ffc400'
+                        selectedTextColor='black'
                         icon='ic_home_black_24dp'
                         iconPosition='left'>
 
@@ -64,7 +64,7 @@ class Attraction extends Component {
                         text='About'
                         textSize={16}
                         textColor='white'
-                        selectedTextColor='#ffc400'
+                        selectedTextColor='black'
                         icon='ic_important_devices_black_24dp'
                         iconPosition='left'>
 
@@ -78,7 +78,7 @@ class Attraction extends Component {
                         style={styles.tabContent}
                         text='Gears Needed'
                         textSize={16} textColor='white'
-                        selectedTextColor='#ffc400'
+                        selectedTextColor='black'
                         icon='ic_important_devices_black_24dp'
                         iconPosition='left'>
 
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   },
   tabView:{
     flex:4,
-    backgroundColor:'#2196F3'
+    backgroundColor: COLOR.green200,//'#2196F3'
   },
   tabContent:{
     borderTopWidth:2,
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
   },
   tabText:{
     textAlign:'justify',
-    color:'white'
+    color:'black'
   },
 })
 

@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
    justifyContent: 'flex-end',
    alignItems: 'center',
 
-   backgroundColor:COLOR.blue500,
+   backgroundColor:COLOR.green500,
  },
  map: {
    ...StyleSheet.absoluteFillObject,

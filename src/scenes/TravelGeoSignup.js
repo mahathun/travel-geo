@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {View,Text, StyleSheet, ScrollView, Alert} from 'react-native';
 
-import {Button, Subheader} from 'react-native-material-ui'
+import {Button, Subheader, COLOR} from 'react-native-material-ui'
 import TextField from 'react-native-md-textinput';
 import Spinner from 'react-native-spinkit';
 
@@ -95,7 +95,7 @@ const styles= StyleSheet.create({
     // backgroundColor:'pink',
   },
   container:{
-    backgroundColor:'#2196F3',
+    backgroundColor: COLOR.green500,//'#2196F3',
     flex:1,
     paddingLeft:50,
 

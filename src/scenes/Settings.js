@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import {View,Text,StyleSheet, Image} from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {Avatar, Button} from 'react-native-material-ui'
+import {Avatar, Button,COLOR} from 'react-native-material-ui'
 import TextField from 'react-native-md-textinput'
 import Spinner from 'react-native-spinkit'
 import {firebaseApp} from './../config/firebaseConfig'
@@ -80,7 +80,7 @@ class Settings extends Component {
 
 const styles = StyleSheet.create({
   container:{
-    backgroundColor:'#2196F3',
+    backgroundColor:COLOR.green500,//'#2196F3',
     flex:1,
   },
   avatarArea:{

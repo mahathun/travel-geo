@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
-import { Avatar, Subheader, Button } from 'react-native-material-ui';
+import { Avatar, Subheader, Button, COLOR } from 'react-native-material-ui';
 import Icon from 'react-native-vector-icons/FontAwesome';
 // const myIcon = (<Icon name="rocket" size={30} color="#900" />)
 
@@ -22,7 +22,7 @@ class Login extends Component {
           <View style={styles.iconSectionTwo}>
             <Avatar style={{
               container:{
-                backgroundColor:'#90CAF9'
+                backgroundColor:COLOR.green200//'#90CAF9'
               }
             }} size={150} image={<Image style={{width:110,height:110}} source={require('./../res/travel-geo-logo-icon.png')} />} />
 
@@ -70,7 +70,7 @@ class Login extends Component {
 
 const styles = StyleSheet.create({
   container:{
-    backgroundColor:'#2196F3',
+    backgroundColor: COLOR.green500,//'#2196F3',
     flex:1,
   },
   iconSection:{

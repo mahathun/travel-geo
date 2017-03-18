@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {
   View,Text, StyleSheet
 } from 'react-native';
-import {Subheader} from 'react-native-material-ui'
+import {Subheader, COLOR} from 'react-native-material-ui'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import Spinner from 'react-native-spinkit'
@@ -52,7 +52,7 @@ class Splash extends Component {
 
 const styles = StyleSheet.create({
   splashContainer:{
-    backgroundColor:'#2196F3',
+    backgroundColor:COLOR.green500,//'#2196F3',
     flex:1,
     justifyContent:'center',
     alignItems:'center'

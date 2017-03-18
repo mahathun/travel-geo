@@ -52,7 +52,7 @@ class NewsFeed extends Component {
     header:{
       visible:true,
       style:{
-        backgroundColor:COLOR.blue700,
+        backgroundColor:COLOR.green500,
       },
       titleStyle:{
         color:'white'
@@ -66,7 +66,7 @@ class NewsFeed extends Component {
   render() {
     console.log("attr",this.state.attractions);
     return (
-        <ScrollView style={{backgroundColor:'#2196F3'}}>
+        <ScrollView style={{backgroundColor:COLOR.green200}}>
           {(this.state.isLoading)?<View style={{alignItems:'center'}}><Spinner size={40} type="ThreeBounce" color={'white'}/></View>:null}
           {
             this.state.attractions.map((attraction, i)=>{

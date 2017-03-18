@@ -3,6 +3,7 @@ import React,{Component} from 'react';
 import {StackNavigator, TabNavigator, DrawerNavigator} from 'react-navigation'
 
 import firebase, {firebaseApp} from './firebaseConfig'
+import {COLOR} from 'react-native-material-ui';
 
 import Main from './../scenes/Main'
 import Splash from './../scenes/Splash'
@@ -74,6 +75,12 @@ export const TravelGeoTabNav = TabNavigator({
       }
     }
   }
+},{
+  tabBarOptions:{
+    style:{
+      backgroundColor:COLOR.green600
+    }
+  }
 });
 
 export const Stack = StackNavigator({
@@ -101,6 +108,11 @@ export const Stack = StackNavigator({
       title:"Travel Geo Account",
       cardStack:{
         gesturesEnabled:true
+      },
+      header:{
+        style:{
+          backgroundColor:COLOR.green700
+        }
       }
     }
   },
