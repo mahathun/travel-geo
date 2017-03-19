@@ -1,23 +1,26 @@
+/* jshint esversion:6 */
 import React,{Component} from 'react';
 
-import {StackNavigator, TabNavigator, DrawerNavigator} from 'react-navigation'
+import {StackNavigator, TabNavigator, DrawerNavigator} from 'react-navigation';
 
-import firebase, {firebaseApp} from './firebaseConfig'
+import firebase, {firebaseApp} from './firebaseConfig';
 import {COLOR, Button} from 'react-native-material-ui';
 
-import Main from './../scenes/Main'
-import Splash from './../scenes/Splash'
-import Login from './../scenes/Login'
-import TravelGeoAccount from './../scenes/TravelGeoAccount'
-import TravelGeoLogin from './../scenes/TravelGeoLogin'
-import TravelGeoSignup from './../scenes/TravelGeoSignup'
-import NewsFeed from './../scenes/NewsFeed'
-import NearByAttractions from './../scenes/NearByAttractions'
-import Settings from './../scenes/Settings'
-import Attraction from './../scenes/Attraction'
-import SearchAttractions from './../scenes/SearchAttractions'
+import Main from './../scenes/Main';
+import Splash from './../scenes/Splash';
+import Login from './../scenes/Login';
+import TravelGeoAccount from './../scenes/TravelGeoAccount';
+import TravelGeoLogin from './../scenes/TravelGeoLogin';
+import TravelGeoSignup from './../scenes/TravelGeoSignup';
+import NewsFeed from './../scenes/NewsFeed';
+import NearByAttractions from './../scenes/NearByAttractions';
+import Settings from './../scenes/Settings';
+import Attraction from './../scenes/Attraction';
+import SearchAttractions from './../scenes/SearchAttractions';
+import Weather from './../scenes/Weather';
 
-import DrawerContent from './../components/DrawerContent'
+
+import DrawerContent from './../components/DrawerContent';
 
 /*
 *********DRAWER ROUTES***************
@@ -38,7 +41,10 @@ export const StackedNewsfeed = StackNavigator({
   },
   SearchAttractions:{
     screen: SearchAttractions,
-  }
+  },
+  Weather:{
+    screen:Weather,
+  },
 },{navigationOptions:{header:{visible:false}}})
 
 

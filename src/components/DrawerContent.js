@@ -23,6 +23,11 @@ class DrawerContent extends Component{
           displayName:'Search Attractions',
           icon:'magnify'
         },
+        {
+          screen: 'Weather',
+          displayName:'Weather',
+          icon:'weather-partlycloudy'
+        },
     ]
     return  (
       <View style={styles.container}>
