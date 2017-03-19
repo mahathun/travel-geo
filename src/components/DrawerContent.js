@@ -18,6 +18,11 @@ class DrawerContent extends Component{
           displayName:'Near-by Attractions',
           icon:'map'
         },
+        {
+          screen: 'SearchAttractions',
+          displayName:'Search Attractions',
+          icon:'magnify'
+        },
     ]
     return  (
       <View style={styles.container}>
@@ -69,7 +74,7 @@ const styles = StyleSheet.create({
     paddingLeft:15,
     backgroundColor:'#fff0',
     borderTopWidth:0.5,
-    borderColor:'#1e83d4',
+    borderColor: COLOR.green600//'#1e83d4',
   },
   item_text:{
     fontSize:15,

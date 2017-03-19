@@ -15,6 +15,7 @@ import NewsFeed from './../scenes/NewsFeed'
 import NearByAttractions from './../scenes/NearByAttractions'
 import Settings from './../scenes/Settings'
 import Attraction from './../scenes/Attraction'
+import SearchAttractions from './../scenes/SearchAttractions'
 
 import DrawerContent from './../components/DrawerContent'
 
@@ -35,7 +36,10 @@ export const StackedNewsfeed = StackNavigator({
   NearByAttractions: {
     screen: NearByAttractions,
   },
-})
+  SearchAttractions:{
+    screen: SearchAttractions,
+  }
+},{navigationOptions:{header:{visible:false}}})
 
 
 
