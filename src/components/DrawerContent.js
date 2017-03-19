@@ -28,6 +28,11 @@ class DrawerContent extends Component{
           displayName:'Weather',
           icon:'weather-partlycloudy'
         },
+        {
+          screen: 'AddAttractions',
+          displayName:'Add Attractions',
+          icon:'map-marker-plus'
+        },
     ]
     return  (
       <View style={styles.container}>

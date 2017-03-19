@@ -18,6 +18,7 @@ import Settings from './../scenes/Settings';
 import Attraction from './../scenes/Attraction';
 import SearchAttractions from './../scenes/SearchAttractions';
 import Weather from './../scenes/Weather';
+import AddAttractions from './../scenes/AddAttractions';
 
 
 import DrawerContent from './../components/DrawerContent';
@@ -44,6 +45,9 @@ export const StackedNewsfeed = StackNavigator({
   },
   Weather:{
     screen:Weather,
+  },
+  AddAttractions:{
+    screen:AddAttractions,
   },
 },{navigationOptions:{header:{visible:false}}})
 
