@@ -53,3 +53,4 @@ fastlane/Preview.html
 fastlane/screenshots
 
 src/config/firebaseConfig.js
+src/config/weatherAPIConfig.js

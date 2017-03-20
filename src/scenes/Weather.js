@@ -2,11 +2,28 @@
 import React,{Component} from 'react';
 import {View,Text, ScrollView, StyleSheet} from 'react-native';
 import {Toolbar, COLOR} from 'react-native-material-ui';
+// import RNCook from 'rn-cook';
+
+import {getWeatherByLocation} from './../api/weatherAPI'
 
 import MainWeatherCard from './../components/MainWeatherCard';
 import SubWeatherCard from './../components/SubWeatherCard';
 
 class Weather extends Component {
+
+  constructor(props){
+    super(props);
+
+
+  }
+
+  componentDidMount(){
+    getWeatherByLocation();
+  }
+
+  getWeatherByCity(){
+
+  }
 
   render() {
     let {navigate} = this.props.navigation;
@@ -19,7 +36,7 @@ class Weather extends Component {
           searchable={{
             autoFocus: true,
             placeholder: 'Search',
-            onSubmitEditing:()=>this.Search(this)
+            onSubmitEditing:()=>this.getWeatherByCity(this)
           }}
         />
 
@@ -27,6 +44,7 @@ class Weather extends Component {
         <SubWeatherCard />
         <SubWeatherCard />
         <SubWeatherCard />
+        {/* <RNCook /> */}
       </ScrollView>
     );
   }
