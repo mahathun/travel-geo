@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {View,Text, StyleSheet, ToolbarAndroid,Image,ScrollView} from 'react-native';
+import {View,Text, StyleSheet, ToolbarAndroid,Image,ScrollView, AsyncStorage} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {Button,COLOR} from 'react-native-material-ui'
 import {firebaseApp} from './../config/firebaseConfig'
@@ -19,6 +19,60 @@ class Attraction extends Component {
         color:'white'
       }
     }
+  }
+  constructor(props){
+    super(props);
+
+    this.addToRecentSearches = this.addToRecentSearches.bind(this);
+  }
+
+  async addToRecentSearches(){
+    try{
+      var recentSearches = JSON.parse(await AsyncStorage.getItem("@travelGeo:recentSearches"));
+      // console.log("recentSearches", recentSearches);
+      //console.log("length", recentSearches.length);
+      //AsyncStorage.setItem("@travelGeo:recentSearches", "[]" );
+      var hasAMatch = recentSearches.find((el)=>{
+        return el.name.toLowerCase() === this.props.navigation.state.params.attraction.name.toLowerCase();
+      })
+
+      console.log("hasAMatch", hasAMatch);
+
+      // add the attraction to the AsyncStorage if the attraction doesnt already exist
+      if(!hasAMatch){
+        if(recentSearches && recentSearches.length===3){
+          /***push attraction and pop one***/
+          // console.log("PUSH & POP");
+          recentSearches.unshift(this.props.navigation.state.params.attraction);
+          recentSearches.pop();
+          AsyncStorage.setItem("@travelGeo:recentSearches", JSON.stringify(recentSearches) );
+          // console.log("After", recentSearches);
+
+        }else if(recentSearches && recentSearches.length<3){
+          /***push this attraction to the array***/
+          // console.log("PUSHED");
+          recentSearches.unshift(this.props.navigation.state.params.attraction)
+          // console.log("After", recentSearches);
+
+          AsyncStorage.setItem("@travelGeo:recentSearches", JSON.stringify(recentSearches) );
+         }else{
+          /***add this attraction to the storage***/
+          // console.log("NEW");
+          let arr = [];
+          arr.unshift(this.props.navigation.state.params.attraction);
+          // console.log("After", recentSearches);
+
+          AsyncStorage.setItem("@travelGeo:recentSearches", JSON.stringify(arr));
+        }
+      }
+    }catch(e){
+      console.log(e);
+    }
+  }
+
+  componentDidMount(){
+    this.addToRecentSearches();
+
   }
   render() {
     let {attraction} = this.props.navigation.state.params;
