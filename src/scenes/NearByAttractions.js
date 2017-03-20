@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {View,Text, StyleSheet, ToolbarAndroid} from 'react-native';
+import {View,Text, StyleSheet, ToolbarAndroid, AsyncStorage, Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import {Button,COLOR} from 'react-native-material-ui'
@@ -49,6 +49,7 @@ class NearByAttractions extends Component {
       console.log("ERROr", error);
     })
   }
+
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
@@ -59,8 +60,13 @@ class NearByAttractions extends Component {
           latitudeDelta: LATITUDE_DELTA,
           longitudeDelta: LONGITUDE_DELTA,
         }});
+
+        //saving the current location to the asyncStorage
+      //  saveToAsync();
+
+
       },
-      (error) => alert(error.message),
+      (error) => alert("Make sure you have enabled GPS"),//error.message
       {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
     );
     this.watchID = navigator.geolocation.watchPosition((position) => {

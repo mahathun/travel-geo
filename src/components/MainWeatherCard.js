@@ -6,21 +6,48 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 class MainWeatherCard extends Component {
   render() {
+    let {name,main,weather} = this.props.weather;
+    let iconArray = {
+      "01n" : "weather-sunny",
+      "02n" : "weather-partlycloudy",
+      "03n" : "weather-cloudy",
+      "04n" : "weather-cloudy",
+      "09n" : "weather-rainy",
+      "10n" : "weather-pouring",
+      "11n" : "weather-lightning",
+      "13n" : "weather-snowy",
+      "50n" : "weather-fog",
+
+      "01d" : "weather-sunny",
+      "02d" : "weather-partlycloudy",
+      "03d" : "weather-cloudy",
+      "04d" : "weather-cloudy",
+      "09d" : "weather-rainy",
+      "10d" : "weather-pouring",
+      "11d" : "weather-lightning",
+      "13d" : "weather-snowy",
+      "50d" : "weather-fog"
+    }
+    let iconUrl = './../res/weather/01n.png';
+    console.log(weather[0]);
     return (
       <Card >
+
         <Image style={{position:'absolute'}}
           source={require('./../res/header_bg2.jpg')} />
 
         <View style={styles.container}>
 
           <View style={styles.weatherRow}>
-            <Text style={styles.weatherTempText}>25C</Text>
+            <Text style={styles.weatherTempText}>{main.temp}C</Text>
+            {/* <Image style={{position:'absolute',zIndex:60}} source={{uri:iconUrl}} /> */}
 
-            <Icon style={styles.weatherIcon} size={40} name={"weather-cloudy"} />
+            <Icon style={styles.weatherIcon} size={50} name={iconArray[weather[0].icon]} />
 
           </View>
           <View style={styles.locationContainer}>
-            <Text style={styles.locationText}>Taradale</Text>
+            <Text style={{textAlign:'right',color:'white', fontSize:20}}>{weather[0].description}</Text>
+            <Text style={styles.locationText}>{name}</Text>
           </View>
         </View>
       </Card>
@@ -47,6 +74,7 @@ const styles = StyleSheet.create({
   weatherIcon:{
     color:'white',
     // fontSize:40,
+
   },
   locationContainer:{
     // backgroundColor:'green'

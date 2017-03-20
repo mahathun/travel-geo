@@ -7,6 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "firebase": "^3.7.1",
     "react": "15.4.2",
     "react-native": "0.42.0",
@@ -19,7 +20,7 @@
     "react-native-spinkit": "^1.0.2",
     "react-native-vector-icons": "^4.0.0",
     "react-navigation": "^1.0.0-beta.7",
-    "superagent": "^3.5.1"
+    "superagent-no-cache": "^0.1.1"
   },
   "devDependencies": {
     "babel-jest": "19.0.0",
