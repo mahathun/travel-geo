@@ -1,6 +1,6 @@
 /* jshint esversion:6 */
 import React,{Component} from 'react';
-import {View,Text, ScrollView, StyleSheet, AsyncStorage} from 'react-native';
+import {View,Text, ScrollView, StyleSheet, AsyncStorage,Alert} from 'react-native';
 import {Toolbar, COLOR} from 'react-native-material-ui';
 
 import {getWeatherByLocation} from './../api/weatherAPI'
@@ -17,6 +17,7 @@ class Weather extends Component {
       currentLocationWeatherData:null,
       isLoading:false,
       recentSearches:[],
+
     }
 
     this.getWeather = this.getWeather.bind(this);
@@ -30,15 +31,11 @@ class Weather extends Component {
 
   }
 
-  async getWeatherData(){
-    console.log("Weather data");
-    let {lat, long} = this.state.currentLocation;
-    let response = await getWeatherByLocation(lat,long);
-    this.setState({currentLocationWeatherData:response.data});
-
+  async componentWillMount(){
     try {
       let recentSearches = JSON.parse(await AsyncStorage.getItem("@travelGeo:recentSearches"));
       console.log(recentSearches);
+      // Alert.alert(recentSearches);
 
       for(var i=0;i<recentSearches.length;i++){
         if(recentSearches[i].location){
@@ -52,8 +49,17 @@ class Weather extends Component {
       this.setState({recentSearches:recentSearches});
 
     } catch (e) {
-      console.log(e);
+    // Alert.alert(e.toString());
     }
+  }
+
+  async getWeatherData(){
+    console.log("Weather data");
+    let {lat, long} = this.state.currentLocation;
+    let response = await getWeatherByLocation(lat,long);
+    this.setState({currentLocationWeatherData:response.data});
+
+
 
     console.log("Data",response.data);
   }
@@ -81,7 +87,7 @@ class Weather extends Component {
   render() {
     let {navigate} = this.props.navigation;
     let {currentLocationWeatherData,recentSearches} = this.state;
-    
+
     //console.log(currentLocationWeatherData.name);
     return (
       <ScrollView style={style.container}>
@@ -100,6 +106,7 @@ class Weather extends Component {
         {recentSearches.map((attr,i)=>{
           return <SubWeatherCard key={i} attraction={attr} />
         })}
+
       </ScrollView>
     );
   }
